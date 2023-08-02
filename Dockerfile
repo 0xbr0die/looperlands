@@ -17,7 +17,7 @@ WORKDIR /opt/app
 COPY shared/js/gametypes.js client/js/gametypes.js
 RUN npm install
 WORKDIR /opt/app/tools/maps
-RUN python2 ./export.py server multi && python2 ./export.py client multi
+RUN ./build-maps.sh
 WORKDIR /opt/app
 RUN mkdir -p client/config
 COPY configs/config_build.json client/config
