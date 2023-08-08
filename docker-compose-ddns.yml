@@ -1,0 +1,11 @@
+services:
+  gameserver:
+    build: 
+      context: .
+      dockerfile: Dockerfile.test
+    ports:
+      - "8000:443"
+    env_file:
+      - /home/looperlands/.env
+    args:
+      - "LL_CONFIG_ID=ddns"
