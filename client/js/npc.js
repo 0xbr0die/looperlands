@@ -8,13 +8,16 @@ define(['character'], function(Character) {
             this._super(id, kind, 1);
             this.itemKind = Types.getKindAsString(this.kind);
 
-            self = this;
+            let self = this;
             axios.get("https://loopworms.io/DEV/LooperLands/getNPCDialog.php?mapId=main&npcId=" + this.itemKind).then(response => {
-                console.log("npc", kind, response);
-                NpcTalk[self.itemKind] = JSON.parse(response.data);
-
-                self.talkCount = NpcTalk[self.itemKind].length;
-                self.talkIndex = 0;
+                console.log("npc", self.itemKind, response);
+                try {
+                    NpcTalk[self.itemKind] = JSON.parse(response.data);
+                    self.talkCount = NpcTalk[self.itemKind].length;
+                    self.talkIndex = 0;                    
+                } catch (error) {
+                    console.error("Error parsing NPC dialog", error, response.data, self.itemKind);
+                }
             });
         },
     
