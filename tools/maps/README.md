@@ -1,5 +1,12 @@
 ### Build maps without docker
+You may find it necessary to build the maps outside of
+docker to check for errors during generation.
+
+The following commands can help you do this assuming you install all the dependencies which can be found in the docker file.
+```bash
 python2 ./export.py server multi && python2 ./export.py client multi
+git clean -f ../../
+```
 
 
 OLD LOOPERLANDS map exporter
