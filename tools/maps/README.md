@@ -1,4 +1,8 @@
-LOOPERLANDS map exporter
+### Build maps without docker
+python2 ./export.py server multi && python2 ./export.py client multi
+
+
+OLD LOOPERLANDS map exporter
 =========================
 
 ***Disclaimer: due to popular demand we are open sourcing this tool, but please be aware that it was never meant to be publicly released. Therefore the code is messy/non-optimized and the exporting process can be very slow with large map files.***
